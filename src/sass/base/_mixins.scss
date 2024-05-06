@@ -1,0 +1,12 @@
+@mixin rhombus {
+    &:before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: var(--accent);
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg) ;
+    }
+}
