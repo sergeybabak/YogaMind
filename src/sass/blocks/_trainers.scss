@@ -1,0 +1,18 @@
+.trainers {
+    min-height: 856px;
+    background-color: var(--light);
+    &__rhombus {
+        position: absolute;
+        width: 430px;
+        height: 430px;
+        
+        // border: 50px solid transparent;
+        transform: rotate(-45deg) scaleX(0.7);
+        div {
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgb(31, 108, 148), rgba(217, 217, 217, 0));
+        }
+        
+    }
+}

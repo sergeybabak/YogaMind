@@ -92,7 +92,8 @@
 }
 .font_h2 {
     font-size: 40px;
-    //medium
+    font-weight: 500;
+    color: var(--accent);
 }
 .font_h3 {
     font-size: 24px;
@@ -103,6 +104,7 @@
     font-size: 24px;
     line-height: 40px;
     font-weight: 350;
+    color: var(--dark-grey)
 }
 .font_small {
     font-size: 16px;
