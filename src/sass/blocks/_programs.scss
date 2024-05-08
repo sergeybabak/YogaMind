@@ -27,11 +27,16 @@
         font-weight: 700;
     }
     &__descr {
+        position: relative;
         margin-top: 24px;
         font-size: 16px;
         font-weight: 400;
         line-height: 26px;
         color: #555D65;
+        @include rhombus;
+        &:before {
+            bottom: -20px;
+        }
     }
     &__photo {
         max-width: 195px;

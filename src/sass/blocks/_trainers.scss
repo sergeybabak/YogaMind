@@ -1,18 +1,150 @@
 .trainers {
+    margin-top: -8px;
     min-height: 856px;
+    padding: 60px 0;
+    .container {
+        position: relative;
+        height: 100%;
+    }
     background-color: var(--light);
+    &__back {
+        position: absolute;
+        top: -40px;
+        left: -110px;
+        width: 599px;
+        height: 368px;
+    }
     &__rhombus {
         position: absolute;
-        width: 430px;
-        height: 430px;
-        
-        // border: 50px solid transparent;
-        transform: rotate(-45deg) scaleX(0.7);
-        div {
+        width: 427px;
+        height: 581px;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom, rgb(31, 108, 148), 20%, rgba(217, 217, 217, 0));
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    &__carousel {
+        position: absolute;
+        width: 1185px;
+        height: 620px;
+        top: 33px;
+        left: 95px;
+        overflow: hidden;
+        &-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to bottom, rgb(31, 108, 148), rgba(217, 217, 217, 0));
+            .trainers__rhombus {
+                position: unset;
+                background-image: none;
+            }
         }
-        
+        &-img {
+            width: 100%;
+        }
+        &-descr {
+            width: 645px;
+        }
+        &-text {
+            margin-top: 40px;
+            min-height: 288px;
+            color: #555D65;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 150%;
+        }
+        &-name {
+            margin-top: 36px;
+            font-size: 36px;
+            font-weight: 550;
+            line-height: 48px;
+            color: var(--accent);
+        }
+        &-rank {
+            margin-top: 16px;
+            font-size: 24px;
+            font-weight: 550;
+            line-height: 48px;
+        }
+    }
+    &__wrapper {
+        position: absolute;
+        width: 200%;
+        display: flex;
+        transition: 1s all;
+        // transform: translateX(-50%);
+        // left: -100%;
+    }
+    &__arrows {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 116px;
+        top: 500px;
+        right: 60px;
+        &-left {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--accent);
+            border-radius: 100%;
+            cursor: pointer;
+            span:first-child {
+                position: absolute;
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                background-color: var(--accent);
+                transform: rotate(-40deg);
+                top: 16px;
+                right: 15px;
+            }
+            span:last-child {
+                position: absolute;
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                background-color: var(--accent);
+                transform: rotate(40deg);
+                bottom: 16px;
+                right: 15px;
+            }
+        }
+        &-right {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--accent);
+            border-radius: 100%;
+            cursor: pointer;
+            span:first-child {
+                position: absolute;
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                background-color: var(--accent);
+                transform: rotate(40deg);
+                top: 16px;
+                left: 15px;
+            }
+            span:last-child {
+                position: absolute;
+                display: inline-block;
+                width: 22px;
+                height: 2px;
+                background-color: var(--accent);
+                transform: rotate(-40deg);
+                bottom: 16px;
+                left: 15px;
+            }
+        }
+        &-active {
+            background: linear-gradient(0.00deg, rgb(31, 108, 148) 0%,rgba(196, 196, 196, 0.65) 116.667%);
+            span:first-child, span:last-child  {
+                background-color: var(--light);
+            }
+        }
     }
 }

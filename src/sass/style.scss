@@ -42,6 +42,7 @@ section {
         background-color: var(--accent);
         transform: rotate(45deg) ;
     }
+    z-index: 9999;
 }
 
 // @import 'blocks/titles';
