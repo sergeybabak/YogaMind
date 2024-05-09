@@ -40,6 +40,10 @@
                 position: unset;
                 background-image: none;
             }
+            
+        opacity: 1;
+        transition: 2s all;
+
         }
         &-img {
             width: 100%;
@@ -71,9 +75,10 @@
     }
     &__wrapper {
         position: absolute;
-        width: 200%;
-        display: flex;
-        transition: 1s all;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        // transition: 2s all;
         // transform: translateX(-50%);
         // left: -100%;
     }
@@ -147,4 +152,7 @@
             }
         }
     }
+}
+.hidden {
+    opacity: 0;
 }

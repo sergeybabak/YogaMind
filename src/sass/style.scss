@@ -14,6 +14,7 @@
     --dark-green: #253A45;
     --dark-grey: #5C686D;
     --light: #E7ECEF;
+    --paragraph: #555D65;
 }
 .container {
     width: 1280px;
@@ -50,5 +51,6 @@ section {
 @import 'blocks/buttons';
 @import 'blocks/programs';
 @import 'blocks/trainers';
+@import 'blocks/passes';
 @import 'blocks/media';
 

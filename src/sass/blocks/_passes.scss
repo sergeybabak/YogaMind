@@ -1,0 +1,35 @@
+.passes {
+    display: block;
+    height: 830px;
+    padding: 106px 0 134px 0;
+    &__subtitle {
+        margin-top: 24px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 150%;
+        color: var(--paragraph);
+    }
+    &__items {
+        margin-top: 112px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        padding: 26px;
+        width: 360px;
+        height: 318px;
+        background-color: var(--light);
+        border-radius: 10px;
+    }
+    &__cost {
+        font-size: 58px;
+        font-weight: 500;
+        color: var(--accent);
+    }
+    &__descr {
+        margin-top: 60px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 19.52px;
+    }
+}
