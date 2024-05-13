@@ -17,7 +17,7 @@
     --paragraph: #555D65;
 }
 .container {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 section {
@@ -45,12 +45,46 @@ section {
     }
     z-index: 9999;
 }
+.social {
+    margin-top: 245px;
+    width: 164px;
+    display: flex;
+    justify-content: space-between;
+    a {
+        // max-width: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        svg {
+            width: 100%;
+            }
+        // &:hover {
+        //     // svg>g>path {
+        //     //     fill: red;
+        //     // }
+        // }
+    }
+}
+
+@keyframes button_down {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
 
 // @import 'blocks/titles';
+@import 'base/icons';
 @import 'blocks/promo';
 @import 'blocks/buttons';
 @import 'blocks/programs';
 @import 'blocks/trainers';
 @import 'blocks/passes';
+@import 'blocks/info';
+@import 'blocks/footer';
 @import 'blocks/media';
 

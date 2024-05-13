@@ -2,6 +2,7 @@
     background-color: var(--light);
     height: 1030px;
     padding-top: 34px;
+    position: relative;
     .container {
         height: 100%;
         position: relative;
@@ -11,6 +12,24 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        &-fixed {
+            top: 0;
+            position: fixed;
+            justify-content: space-around;
+            border-radius: 20px;
+            width: 1280px;
+            z-index: 100;
+            background-color: rgba(#000, 0.2);
+            .promo__logo, .promo__link>a {
+                color: #fff;
+            }
+            .promo__link-active>a:before {
+                background-color: #fff;
+            }
+            .promo__phone {
+                display: none;
+            }
+        }
     }
     &__logo {
         color: var(--black);
@@ -146,23 +165,6 @@
                 color: var(--black);
                 margin-left: 4px;
             }
-        }
-    }
-    &__social {
-        margin-top: 245px;
-        width: 164px;
-        display: flex;
-        justify-content: space-between;
-        a {
-            max-width: 44px;
-            svg {
-                width: 100%;
-                }
-            // &:hover {
-            //     // svg>g>path {
-            //     //     fill: red;
-            //     // }
-            // }
         }
     }
     &__images-back {

@@ -49,3 +49,15 @@
         right: 20px;
     }
 }
+
+.passes__btn {
+    border: none;
+    width: 139px;
+    height: 43px;
+    background-color: var(--accent);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light);
+    align-self: flex-end;
+}

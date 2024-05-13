@@ -1,0 +1,27 @@
+footer {
+    min-height: 120px;
+    background-color: var(--accent);
+    .container {
+        display: grid;
+        height: 120px;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        align-content: center;
+        a {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 400;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .copyright {
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            align-content: center;
+        }
+    }
+    
+}

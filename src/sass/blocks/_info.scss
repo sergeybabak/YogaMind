@@ -1,0 +1,50 @@
+.info {
+    margin-top: -8px;
+    min-height: 500px;
+    background-color: var(--light);
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__times, &__addres {
+        width: 410px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        h2 {
+            margin-top: 120px;
+            margin-bottom: 36px;
+        }
+    }
+    &__img {
+        width: 360px;
+        &-tree {
+            width: 100%;
+        }
+        &-photo {
+            width: 100%;
+            margin-top: -255px;
+        }
+    }
+    &__map {
+        display: flex;
+        align-items: center;
+        margin-top: 65px;
+        .icon {
+            width: 44px;
+            height: 44px;
+            margin-right: 7px;
+        }
+    }
+    &__addres {
+        a {
+            color: var(--black);
+            text-decoration-line: underline;
+            font-size: 20px;
+            font-weight: 200;
+        }
+    }
+    .social {
+        margin-top: 65px;
+    }
+}
