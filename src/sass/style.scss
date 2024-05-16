@@ -46,7 +46,9 @@ section {
     z-index: 9999;
 }
 .social {
-    margin-top: 245px;
+    // margin-top: 245px;
+    align-self: end;
+    margin-bottom: 80px;
     width: 164px;
     display: flex;
     justify-content: space-between;
