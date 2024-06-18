@@ -47,7 +47,7 @@ section {
 }
 .social {
     // margin-top: 245px;
-    align-self: end;
+    // align-self: end;
     margin-bottom: 80px;
     width: 164px;
     display: flex;
@@ -81,6 +81,7 @@ section {
 
 // @import 'blocks/titles';
 @import 'base/icons';
+@import 'blocks/header';
 @import 'blocks/promo';
 @import 'blocks/buttons';
 @import 'blocks/programs';

@@ -1,20 +1,24 @@
 window.addEventListener('load', function() {
-    const menuItems = document.querySelectorAll('.promo__link'),
+    const menuItems = document.querySelectorAll('.header__link'),
           arrLeft = document.querySelector('.trainers__arrows-left'),
           arrRight = document.querySelector('.trainers__arrows-right'),
           carouselItems = document.querySelectorAll('.trainers__carousel-item'),
           //,carouselWrapper = document.querySelector('.trainers__wrapper')
           links = document.querySelectorAll('a'),
-          sections = document.querySelectorAll('section')
+          sections = document.querySelectorAll('section'),
+          hamburger = document.querySelector('.hamburger'),
+          menu = document.querySelector('.header__nav'),
+
+          carouselPrograms = document.querySelector('.programs__items')
           ;
     let carouselIndex = 0,
         menuIndex = 0;
 
     function menuActive(it) {
         menuItems.forEach((item, i) => {
-            menuItems.forEach(item => item.classList.remove('promo__link-active'));
+            menuItems.forEach(item => item.classList.remove('header__link-active'));
         });
-        menuItems[it].classList.add('promo__link-active');
+        menuItems[it].classList.add('header__link-active');
     };
     // Меню
     menuItems.forEach((item, i) => {
@@ -26,6 +30,11 @@ window.addEventListener('load', function() {
             // this.classList.add('promo__link-active');
             menuActive(i);
         });
+    });
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('header__nav-active');
+        hamburger.classList.toggle('hamburger_active');
     });
 
     links.forEach(link => {
@@ -122,4 +131,5 @@ window.addEventListener('load', function() {
             document.querySelector('.promo__header').classList.remove('promo__header-fixed');
         }
     });
+
 });
