@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .promo {
     background-color: var(--light);
     min-height: 1010px;

@@ -5,32 +5,45 @@ window.addEventListener('load', function() {
           carouselItemsClass = mainWindow.children[0].classList.value, // Класс обертки с элементами
           carouselItemClass = document.querySelector('.'+carouselItemsClass).children[0].classList.value, // Класс элементов внутри обертки
           itemCount = document.querySelectorAll('.'+carouselItemClass).length; // Количество элементов слайдера (> 2)
+
     let arrayOrders = [0,1,2,3];
+    let startX, endX, currentIndex = 1;
+    let wrapper = document.querySelector('.' + carouselItemsClass);
     // Определяем параметры для работы
     // arrayOrders.push(arrayOrders.shift()); // меняем ордеры при перемещении влево
     // arrayOrders.unshift(arrayOrders.pop()); // меняем ордеры при перемещении вправо
-    const setParams = () => {
-        document.querySelectorAll('.'+carouselItemClass).forEach((item, i) => {
-            
-            
-            item.style.order = arrayOrders[i];
-        });
-    };
-    setParams();
-    
-    let startX, endX, currentIndex = 1;
 
-    const setForIndex = (i) => {
+    const setForIndex = (i, mode) => {
+        if (mode == 'full') {
+            wrapper.style.transition = `2s all`;
+        }
+        else {
+            wrapper.style.transform = '';
+        }
+        // wrapper.style.transform = '';
         const fullWidth = document.querySelector('.' + carouselItemsClass).offsetWidth,
               itemWidth = document.querySelector('.' + carouselItemClass).offsetWidth,
               carouselWidth = document.querySelector(mainBlock).offsetWidth,
               gap = (fullWidth - itemWidth * itemCount) / (itemCount - 1);
-        const wrapper = document.querySelector('.' + carouselItemsClass);
+        // const wrapper = document.querySelector('.' + carouselItemsClass);
         const interval = i * itemWidth + gap * i - (carouselWidth - itemWidth) / 2;
 
+        // wrapper.style.transition = `2s all`;
+
         wrapper.style.transform = `translateX(${-interval}px)`;
+        // wrapper.style.transition = `2s all`;
+        console.log(mode);
     };
-    setForIndex(currentIndex);
+
+    const setParams = () => {
+        document.querySelectorAll('.'+carouselItemClass).forEach((item, i) => {
+            item.style.order = arrayOrders[i];
+        });
+        setForIndex(currentIndex, 'none');
+    };
+    setParams();
+    
+    setForIndex(currentIndex, 'full');
 
     mainWindow.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
@@ -41,25 +54,29 @@ window.addEventListener('load', function() {
     });
 
     mainWindow.addEventListener('touchend', () => {
-        console.log('old: '+currentIndex);
+        // console.log('old: '+currentIndex);
         if (startX - endX > 0) {
-            currentIndex++;
-            if (currentIndex = itemCount - 2) {
+            
+            if (currentIndex === itemCount - 2) {
                 arrayOrders.unshift(arrayOrders.pop());
-                setForIndex(currentIndex-1);
+                currentIndex--;
+                setParams();
             }
+            currentIndex++;
+            setForIndex(currentIndex, 'full');
         }
         else if (startX - endX < 0) {
-            currentIndex--;
-            if (currentIndex = 1) {
+            
+            if (currentIndex === 1) {
                 arrayOrders.push(arrayOrders.shift());
-                setForIndex(currentIndex+1);
+                currentIndex++;
+                setParams();
             }
+            currentIndex--;
+            setForIndex(currentIndex, 'full');
         }
-        document.querySelectorAll('.'+carouselItemClass).forEach((item, i) => {
-            item.style.order = arrayOrders[i];
-        });
         console.log(currentIndex);
-        setForIndex(currentIndex);
+        console.log(arrayOrders);
+        // setForIndex(currentIndex, 'full');
     });
 });
