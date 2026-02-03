@@ -79,8 +79,8 @@
         }
     }
     .passes {
-        &__item-center {
-            transform: translateY(50%);
+        &__item-box {
+            transform: rotate(45deg) translate(40%, 40%);
         }
     }
 }
@@ -325,7 +325,7 @@
         }
 
         &__items {
-            grid-template-columns: repeat(4, 380px);
+            grid-template-columns: repeat(5, 380px);
             gap: 16px;
             width: 260%;
         }

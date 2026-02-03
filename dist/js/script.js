@@ -117,8 +117,8 @@ window.addEventListener('load', function () {
         wrapper: '.programs__carousel',
         centralItem: 2,
         dots: {
-            panelClass: 'programs__dots',  // обертка точек
-            activeClass: 'programs__dot-active'    // активный класс точки
+            panelClass: 'programs__dots',           // обертка точек
+            activeClass: 'programs__dot-active'     // активный класс точки
         }
     };
 
