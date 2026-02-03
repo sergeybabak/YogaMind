@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
     const menuItems = document.querySelectorAll('.header__link'),
         arrLeft = document.querySelector('.trainers__arrows-left'),
         arrRight = document.querySelector('.trainers__arrows-right'),
-        carouselItems = document.querySelectorAll('.trainers__carousel-item'),
+        // carouselItems = document.querySelectorAll('.trainers__carousel-item'),
         //,carouselWrapper = document.querySelector('.trainers__wrapper')
         links = document.querySelectorAll('a'),
         sections = document.querySelectorAll('section'),
@@ -54,67 +54,61 @@ window.addEventListener('load', function () {
         });
     });
 
-    // Карусель
-    arrRight.addEventListener('click', () => {
-        setTimeout(() => { arrRight.classList.remove('animat') }, 500);
-        if (carouselIndex + 1 < carouselItems.length) {
-            arrRight.classList.add('animat');
+
+    // Карусель trainers
+    const itemImgs = document.querySelectorAll('.trainers__carousel-imgtop > *'),
+          itemText = document.querySelectorAll('.trainers__carousel-text'),
+          itemName = document.querySelectorAll('.trainers__carousel-name'),
+          itemRank = document.querySelectorAll('.trainers__carousel-rank');
+    const countItems = itemImgs.length;
+
+    function updateOpacity(item, state) {
+        setTimeout(() => {
+            state === 'none' ? item.classList.remove('hidden') : item.classList.add('hidden');
+        }, 1000);
+    }
+
+    function updateCarousel() {
+        itemImgs.forEach((item, i) => {
+            item.classList.toggle('no-display', i !== carouselIndex);
+        });
+        itemText.forEach((item, i) => {
+            item.classList.toggle('no-display', i !== carouselIndex);
+        });
+        itemName.forEach((item, i) => {
+            item.classList.toggle('no-display', i !== carouselIndex);
+        });
+        itemRank.forEach((item, i) => {
+            item.classList.toggle('no-display', i !== carouselIndex);
+        });
+
+        // состояние стрелок
+        arrLeft.classList.toggle(
+            'trainers__arrows-active',
+            carouselIndex > 0
+        );
+
+        arrRight.classList.toggle(
+            'trainers__arrows-active',
+            carouselIndex < countItems - 1
+        );
+    }
+
+    function moveCarousel(direction) {
+        if (direction === 'next' && carouselIndex < countItems - 1) {
             carouselIndex++;
-
-            carouselItems[carouselIndex].removeAttribute('style');
-            carouselItems[carouselIndex - 1].classList.add('hidden');
-            setTimeout(() => {
-                carouselItems[carouselIndex - 1].style.display = "none";
-            }, 1500);
-            setTimeout(() => {
-                carouselItems[carouselIndex].classList.remove('hidden');
-            }, 2000);
-
-            arrLeft.classList.add('trainers__arrows-active');
-            if (carouselIndex + 1 == carouselItems.length) arrRight.classList.remove('trainers__arrows-active');
         }
-    });
-    arrLeft.addEventListener('click', () => {
-        setTimeout(() => { arrLeft.classList.remove('animat') }, 500);
-        if (carouselIndex - 1 >= 0) {
-            arrLeft.classList.add('animat');
+
+        if (direction === 'prev' && carouselIndex > 0) {
             carouselIndex--;
-
-            carouselItems[carouselIndex + 1].classList.add('hidden');
-            setTimeout(() => {
-                carouselItems[carouselIndex].removeAttribute('style');
-            }, 1500);
-            setTimeout(() => {
-                carouselItems[carouselIndex].classList.remove('hidden');
-            }, 2000);
-
-            arrRight.classList.add('trainers__arrows-active');
-            if (carouselIndex == 0) arrLeft.classList.remove('trainers__arrows-active');
         }
-    });
 
-    // изменение пункта меню при скроле
-    // document.addEventListener('scroll', function () {
-    //     var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        updateCarousel();
+    }
 
-    //     sections.forEach(function (section, i) {
-    //         var sectionTop = section.offsetTop;
-    //         var clientHeight = document.documentElement.clientHeight;
+    arrRight.addEventListener('click', () => moveCarousel('next'));
+    arrLeft.addEventListener('click', () => moveCarousel('prev'));
 
-    //         if (scrollPosition >= sectionTop - clientHeight / 2) {
-    //             if (menuIndex != i) {
-    //                 menuIndex = i;
-    //                 menuActive(menuIndex);
-    //             }
-    //         }
-    //     });
-    //     if (scrollPosition > 200) {
-    //         document.querySelector('.promo__header').classList.add('promo__header-fixed');
-    //     }
-    //     else {
-    //         document.querySelector('.promo__header').classList.remove('promo__header-fixed');
-    //     }
-    // });
 
     // Карусель для programs
     let programSlider = null;
@@ -122,6 +116,10 @@ window.addEventListener('load', function () {
     const sliderProgramConfig = {
         wrapper: '.programs__carousel',
         centralItem: 2,
+        dots: {
+            panelClass: 'programs__dots',  // обертка точек
+            activeClass: 'programs__dot-active'    // активный класс точки
+        }
     };
 
     function handleProgramSlider() {

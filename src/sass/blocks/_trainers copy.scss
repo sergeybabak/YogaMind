@@ -15,9 +15,7 @@
     }
 
     &__carousel {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        // row-gap: 40px;
+        display: flex;
 
         &-imgback {
             position: absolute;
@@ -54,16 +52,17 @@
 
         &-img {
             position: relative;
-            // flex: 0 0 50%;
+            flex: 0 0 50%;
         }
 
-        h2 {
+
+        &-descr {
+            flex: 0 0 50%;
             padding-top: 60px;
         }
+
         &-text {
-            grid-row: 2;
-            grid-column: 2 / 4;
-            padding-top: 40px;
+            margin-top: 40px;
             min-height: 288px;
             color: #555D65;
             font-size: 24px;
@@ -71,10 +70,14 @@
             line-height: 150%;
         }
 
+        &-panel {
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         &-name {
-            padding-top: 40px;
-            grid-row: 3px;
-            grid-column: 2;
             font-size: 36px;
             font-weight: 550;
             line-height: 48px;
@@ -82,25 +85,16 @@
         }
 
         &-rank {
-            grid-row: 4;
-            grid-column: 2 / 4;
-            padding-top: 16px;
+            margin-top: 16px;
             font-size: 24px;
             font-weight: 550;
             line-height: 48px;
         }
-        .divider {
-            display: none;
-        }
     }
 
     &__arrows {
-        padding-top: 40px;
-        grid-row: 3;
-        grid-column: 3;
         display: flex;
-        justify-content: center;
-        justify-self: end;
+        justify-content: space-between;
         gap: 16px;
 
         &-left {

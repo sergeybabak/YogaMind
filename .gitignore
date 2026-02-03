@@ -7,6 +7,8 @@
 /coverage
 
 # production
+############# в конце не забыть убрать ############
+/dist
 /build
 
 # misc
