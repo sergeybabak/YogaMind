@@ -78,9 +78,42 @@
             }
         }
     }
+
     .passes {
-        &__item-box {
-            transform: rotate(45deg) translate(40%, 40%);
+        &__item {
+            &-center {
+                width: 330px;
+                height: 292px;
+            }
+
+            &-box {
+                width: 270px;
+                height: 270px;
+            }
+
+            &:nth-child(2) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 275px;
+                height: 245px;
+                transform: translateY(50%);
+            }
+        }
+
+        &__item-fs {
+            padding: 20px;
+            width: 275px;
+            height: 245px;
+
+            .passes__cost {
+                font-size: 48px;
+            }
+
+            .passes__btn {
+                width: 142px;
+                height: 33px;
+            }
         }
     }
 }
@@ -153,6 +186,49 @@
             &-img {
                 margin-top: 50px;
             }
+        }
+    }
+
+    .passes {
+        height: auto;
+        padding: 60px 0;
+
+        &__items {
+            margin-top: 30px;
+            flex-direction: column;
+        }
+
+        &__item:nth-child(2) {
+            transform: none;
+            align-self: center;
+        }
+
+        &__item:last-child {
+            align-self: end;
+        }
+        &__item-box {
+                transform: rotate(45deg) translate(0px, 0px);
+        }
+    }
+
+    .info {
+        &__wrapper {
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+        &__img {
+            grid-row: 1;
+            justify-self: center;
+        }
+        &__times, &__addres {
+            margin-top: 30px;
+            h2 {
+                margin: 0;
+            }
+        }
+        &__map {
+            margin-top: 50px;
+            justify-self: center;
         }
     }
 }
@@ -240,13 +316,13 @@
                 align-items: center;
                 background-color: var(--dark-grey);
                 width: 60%;
-                right: -100%;
+                right: 0;
                 height: 100vh;
                 padding: 40px;
                 z-index: 995;
-                opacity: .8;
+                opacity: 0;
                 transition: .8s all;
-                display: none; // !!!!!!!!!!!!!!!
+                // display: none; // !!!!!!!!!!!!!!!
 
                 &>li>a {
                     color: #fff;
@@ -255,7 +331,7 @@
 
             &-active {
                 ul {
-                    right: 0;
+                    opacity: .8;
                 }
             }
         }
@@ -336,8 +412,11 @@
     }
 
     .trainers {
+        padding: 60px 0 60px 0;
+
         &__carousel {
             grid-template-columns: 2fr 1fr;
+
             &-img {
                 // margin: 0 auto;
                 width: 320px;
@@ -346,29 +425,95 @@
                 grid-column: 1 / 3;
                 justify-self: center;
             }
+
             h2 {
                 grid-row: 1;
                 grid-column: 1;
             }
+
             &-name {
                 grid-row: 3;
                 grid-column: 1 / 3;
             }
+
             &-rank {
                 grid-row: 4;
                 grid-column: 1 / 3;
             }
+
             &-text {
+                min-height: auto;
                 grid-row: 5;
                 grid-column: 1 / 3;
             }
         }
+
         &__arrows {
             grid-row: 1;
             grid-column: 2;
             padding: 0;
         }
     }
+
+    .passes {
+        &__item {
+            &-center {
+                width: 252px;
+                height: 224px;
+
+                .passes__cost {
+                    font-size: 40px;
+                }
+
+                .passes__descr {
+                    font-size: 14px;
+                }
+
+                .passes__btn {
+                    margin-top: 12px;
+                    width: 160px;
+                    height: 40px;
+                    font-size: 12px;
+                }
+                &:nth-child(2) {
+                    width: 252px;
+                height: 224px;
+                }
+            }
+
+            &-box {
+                width: 210px;
+                height: 210px;
+            }
+
+            &:nth-child(2) {
+                width: 210px;
+                height: 188px;
+            }
+        }
+
+        &__item-fs {
+            padding: 20px;
+            width: 210px;
+            height: auto;
+
+            .passes__cost {
+                font-size: 36px;
+            }
+
+            .passes__descr {
+                font-size: 12px;
+            }
+
+            .passes__btn {
+                margin-top: 12px;
+                width: 160px;
+                height: 40px;
+                font-size: 12px;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -482,22 +627,80 @@
             }
         }
     }
+
     .trainers {
+        .container {
+            width: 100%;
+        }
+        &__arrows {
+            padding-right: 60px;
+        }
         &__carousel {
+            overflow: hidden;
             h2 {
                 font-size: 24px;
+                padding-left: 60px;
             }
+
             &-img {
                 margin-top: 20px;
             }
+
             &-name {
-                padding: 0;
+                padding: 0 60px;
             }
+            &-text {
+                padding: 0 60px;
+            }
+
             &-rank {
-                padding: 0;
+                padding: 0 60px;
                 font-size: 16px;
             }
         }
+    }
+
+    .passes {
+        .container {
+            overflow: hidden;
+        }
+        &__subtitle {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    }
+
+    .info {
+        &__img {
+            width: 117px;
+            &-photo {
+                margin-top: -80px;
+            }
+        }
+        &__times {
+            &-clock {
+                font-size: 14px;
+            }
+        }
+        &__addres {
+            font-size: 14px;
+        }
+        .social {
+            margin: 30px auto 0 auto;
+        }
+    }
+
+    .font_h2 {
+        font-size: 24px;
+    }
+
+    .footer__wrapper {
+        padding: 18px 0;
+        grid-template-columns: 1fr 1fr;
+        a, .copyright {
+            font-size: 14px;
+        }
+
     }
 }
 
@@ -540,35 +743,52 @@
     .trainers {
         &__carousel {
             grid-template-columns: 1fr;
+
             &-img {
                 grid-row: 3;
                 transform: translateX(10%);
                 width: 238px;
             }
+
             &-name {
                 grid-row: 4;
             }
+
             &-rank {
                 padding-top: 10px;
                 grid-row: 5;
                 line-height: normal;
             }
+
             .divider {
                 padding-top: 30px;
                 display: flex;
                 grid-row: 6;
             }
+
             &-text {
                 padding-top: 20px;
                 grid-row: 7;
             }
         }
+
         &__arrows {
-            padding-top: 20px;
+            padding: 20px 0 0 0;
             grid-row: 2;
             grid-column: 1;
             justify-self: center;
         }
 
+    }
+    .passes {
+        .container {
+            width: calc(100% - 20px);
+        }
+        h2, &__subtitle {
+            padding: 0 60px;
+        }
+        &__items {
+            gap: 20px;
+        }
     }
 }

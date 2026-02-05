@@ -24,10 +24,11 @@ window.addEventListener('load', function () {
         item.addEventListener('click', function (event) {
             event.preventDefault(); // Предотвращаем стандартное действие ссылки
             // Удаляем класс promo__link-active у всех пунктов меню
-            // menuItems.forEach(item => item.classList.remove('promo__link-active'));
+            menuItems.forEach(item => item.classList.remove('promo__link-active'));
             // Добавляем класс promo__link-active к текущему пункту меню
-            // this.classList.add('promo__link-active');
+            this.classList.add('promo__link-active');
             menuActive(i);
+            menu.classList.remove('header__nav-active');
         });
     });
 

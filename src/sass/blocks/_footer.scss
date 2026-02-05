@@ -1,12 +1,12 @@
-footer {
+.footer {
     min-height: 120px;
     background-color: var(--accent);
-    .container {
+    &__wrapper {
         display: grid;
-        height: 120px;
+        padding: 50px 0;
         grid-template-columns: repeat(3, 1fr);
         justify-content: space-between;
-        align-content: center;
+        align-items: center;
         a {
             color: #fff;
             font-size: 20px;
@@ -18,7 +18,7 @@ footer {
         .copyright {
             color: #fff;
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 400;
             align-content: center;
         }
