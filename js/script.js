@@ -58,9 +58,9 @@ window.addEventListener('load', function () {
 
     // Карусель trainers
     const itemImgs = document.querySelectorAll('.trainers__carousel-imgtop > *'),
-          itemText = document.querySelectorAll('.trainers__carousel-text'),
-          itemName = document.querySelectorAll('.trainers__carousel-name'),
-          itemRank = document.querySelectorAll('.trainers__carousel-rank');
+        itemText = document.querySelectorAll('.trainers__carousel-text'),
+        itemName = document.querySelectorAll('.trainers__carousel-name'),
+        itemRank = document.querySelectorAll('.trainers__carousel-rank');
     const countItems = itemImgs.length;
 
     function updateOpacity(it, state) {
@@ -148,4 +148,37 @@ window.addEventListener('load', function () {
 
     handleProgramSlider();
     window.addEventListener('resize', handleProgramSlider);
+
+    // Прокрутка сайта - управление меню
+    const observerOptions = {
+        root: null, // следим относительно окна браузера
+        rootMargin: '0px',
+        threshold: 0.6 // секция считается активной, когда видно 60% её площади
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+
+                // Удаляем класс активности у всех ссылок
+                menuItems.forEach((link) => {
+                    link.classList.remove('header__link-active');
+                });
+
+                // Добавляем класс ссылке, которая ведет на текущую секцию
+                const activeLink = this.document.querySelector(`[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.parentElement.classList.add('header__link-active');
+                }
+
+                console.log(id); // Для проверки в консоли
+            }
+        });
+    }, observerOptions);
+
+    // запускаем наблюдение за всеми секциями
+    document.querySelectorAll('section').forEach((section) => {
+        observer.observe(section);
+    });
 });
