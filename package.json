@@ -1,16 +1,19 @@
 {
-	"name": "portfolio_starter",
+	"name": "yogamind",
 	"version": "1.0.0",
+	"homepage": "https://sergeybabak.github.io/YogaMind",
 	"description": "",
 	"type": "module",
-	"main": "gulpfile.js",
+	"main": "index.html",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "gh-pages -d dist"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"browser-sync": "^3.0.4",
+		"gh-pages": "^6.3.0",
 		"gulp": "^5.0.0",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",

@@ -63,15 +63,21 @@ window.addEventListener('load', function () {
           itemRank = document.querySelectorAll('.trainers__carousel-rank');
     const countItems = itemImgs.length;
 
-    function updateOpacity(item, state) {
+    function updateOpacity(it, state) {
         setTimeout(() => {
-            state === 'none' ? item.classList.remove('hidden') : item.classList.add('hidden');
-        }, 1000);
+            itemImgs.forEach((item, i) => {
+                if (i === it) {
+                    console.log(it, state);
+                    state === 'none' ? item.classList.add('hidden') : item.classList.remove('hidden');
+                }
+            })
+        }, 500);
     }
 
     function updateCarousel() {
         itemImgs.forEach((item, i) => {
             item.classList.toggle('no-display', i !== carouselIndex);
+            updateOpacity(carouselIndex, 'yes');
         });
         itemText.forEach((item, i) => {
             item.classList.toggle('no-display', i !== carouselIndex);
@@ -96,6 +102,8 @@ window.addEventListener('load', function () {
     }
 
     function moveCarousel(direction) {
+        updateOpacity(carouselIndex, 'none');
+
         if (direction === 'next' && carouselIndex < countItems - 1) {
             carouselIndex++;
         }
