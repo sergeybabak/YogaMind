@@ -12,6 +12,7 @@ gulp.task("server", function () {
         server: {
             baseDir: "dist",
         },
+        logLevel: "silent",
     });
 
     gulp.watch("src/*.html").on("change", browserSync.reload);
